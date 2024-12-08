@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class UseCaseError(ABC):
+class UseCaseError(ABC, Exception):
     @property
     @abstractmethod
     def message(self) -> str:
