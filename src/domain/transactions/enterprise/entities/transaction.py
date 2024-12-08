@@ -33,7 +33,7 @@ class Transaction(Entity[TransactionProps]):
     @property
     def user_id(self) -> UniqueEntityID:
         return self.props.user_id
-    
+
     @property
     def value_in_cents(self) -> int:
         return self.props.value_in_cents
@@ -41,7 +41,7 @@ class Transaction(Entity[TransactionProps]):
     @property
     def category(self) -> Category:
         return self.props.category
-    
+
     @property
     def type(self) -> TransactionType:
         return self.props.type
@@ -65,8 +65,5 @@ class Transaction(Entity[TransactionProps]):
     def create(
         props: TransactionPropsDict, entity_id: Optional[UniqueEntityID] = None
     ) -> "Transaction":
-        """
-        Cria uma instância de Transaction, preenchendo campos opcionais automaticamente.
-        """
         transaction_props = TransactionProps(**props)
         return Transaction(transaction_props, entity_id or UniqueEntityID())

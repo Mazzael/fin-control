@@ -4,7 +4,8 @@ disable =
       C0115, # missing-class-docstring
       C0116, # missing-function-docstring
       C0114, # missing-module-docstring
-      R0903  # too-few-public-methods
+      R0903, # too-few-public-methods
+      C0301  # line-too-long
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists

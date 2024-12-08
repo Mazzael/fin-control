@@ -34,7 +34,7 @@ class User(Entity[UserProps]):
     @property
     def password_hash(self) -> str:
         return self.props.password_hash
-    
+
     @property
     def current_funds_in_cents(self) -> int:
         return self.props.current_funds_in_cents
@@ -66,8 +66,5 @@ class User(Entity[UserProps]):
     def create(
         props: UserPropsDict, entity_id: Optional[UniqueEntityID] = None
     ) -> "User":
-        """
-        Cria uma instância de User, preenchendo campos opcionais automaticamente.
-        """
         user_props = UserProps(**props)
         return User(user_props, entity_id or UniqueEntityID())
