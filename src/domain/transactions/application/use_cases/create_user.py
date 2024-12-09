@@ -28,7 +28,8 @@ class CreateUserUseCase:
             props={
                 'name': request.name,
                 'cpf': request.cpf,
-                'password_hash': hashed_password
+                'password_hash': hashed_password,
+                'current_funds_in_cents': 0
             }
         )
 
