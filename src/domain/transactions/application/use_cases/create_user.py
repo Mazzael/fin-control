@@ -24,14 +24,7 @@ class CreateUserUseCase:
 
         hashed_password = await self.hash_generator.hash(request.password)
 
-        user = User.create(
-            props={
-                'name': request.name,
-                'cpf': request.cpf,
-                'password_hash': hashed_password,
-                'current_funds_in_cents': 0
-            }
-        )
+        user = User(name=request.name, cpf=request.cpf, password_hash=hashed_password, current_funds_in_cents=0)
 
         await self.users_repository.create(user)
 

@@ -38,9 +38,8 @@ async def test_create_user_success():
 @pytest.mark.asyncio
 async def test_create_user_already_exists():
     # Arrange
-    existing_user = User.create(
-        props={"name": "Existing User", "cpf": "12345678900", "password_hash": "hashed_password", "current_funds_in_cents": 0}
-    )
+    existing_user = User(name='Existing User', cpf='12345678900', password_hash='hashed_password', current_funds_in_cents=0)
+
     users_repository_mock = MagicMock()
     users_repository_mock.find_by_cpf = AsyncMock(return_value=existing_user)
 
